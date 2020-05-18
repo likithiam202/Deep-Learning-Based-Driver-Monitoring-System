@@ -1,0 +1,43 @@
+from pydrive.drive import GoogleDrive 
+from pydrive.auth import GoogleAuth 
+
+# For using listdir() 
+import os 
+
+def main():
+    # Below code does the authentication 
+    # part of the code 
+    gauth = GoogleAuth() 
+
+    # Creates local webserver and auto 
+    # handles authentication. 
+    gauth.LocalWebserverAuth()	 
+    drive = GoogleDrive(gauth) 
+
+    # replace the value of this variable 
+    # with the absolute path of the directory 
+    path = r"C:\Python\project_path_raj"
+
+    # iterating thought all the files/folder 
+    # of the desired directory 
+    for x in os.listdir(path): 
+
+            f = drive.CreateFile({'title': x}) 
+            f.SetContentFile(os.path.join(path, x)) 
+            f.Upload() 
+
+            # Due to a known bug in pydrive if we 
+            # don't empty the variable used to 
+            # upload the files to Google Drive the 
+            # file stays open in memory and causes a 
+            # memory leak, therefore preventing its 
+            # deletion 
+            f = None
+
+
+
+if __name__ == '__main__':
+    flag =1 
+    #using flag autset to one suggesting to call main() when distraction detected , need to set falg at that point and integrate
+    if(flag):
+        main()
