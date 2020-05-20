@@ -1,0 +1,39 @@
+from selenium import webdriver
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+import time
+import argparse
+from pydrive.drive import GoogleDrive 
+from pydrive.auth import GoogleAuth
+import os
+
+path = r"C:\Python\project_path_raj"
+
+driver = webdriver.Chrome()
+
+driver.get("https://accounts.google.com/signin/oauth/identifier?response_type=code&client_id=378513217926-6q3lp8ojftf1i14dlrj0udqh4ou2jjok.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.kaggle.com%2Fsignin-google&scope=openid%20profile%20email&state=CfDJ8LdUzqlsSWBPr4Ce3rb9VL-h99PnZzAshK8gQbiJPEvVizwAZAuPQSGW0oOrno7Hqft94OScbW0eXh5eWXoBaNuVRUx7ojzQulslrY6Eo3b1ecnyNizH9-TxGQfj0IhSQlJn8PWhRqYE0fkfEnbBA2aflrBgzb0kqhk6gnlxXbVJXo9k5emqbo8feQqngke_qrr7ls2Zo_WoRq3cQxc2KDnMZ_ii6XVWAQ3bPCxr6Lt1nH7Sha6lmnx0eOHix_kPTsfWmueGRLN00hQHKVHi77w&o2v=2&as=_2s1p13LbpJJ3uWAnHyf5w&flowName=GeneralOAuthFlow")
+
+driver.find_element_by_name("identifier").send_keys("p1projectteam66@gmail.com")
+driver.find_element_by_xpath("//*[@id='identifierNext']/span/span").click()
+
+time.sleep(10)
+
+
+driver.find_element_by_name("password").send_keys("gagjafrajlik123")
+
+time.sleep(4)
+
+driver.find_element_by_xpath("//*[@id='passwordNext']/span/span").click()
+
+time.sleep(5)
+
+driver.execute_script("window.open('');")
+driver.switch_to.window(driver.window_handles[1])
+driver.get("https://drive.google.com/drive/folders/1l6hu2pjT8xtCUuTvMfY7Xg-8DdDWC_e8")
+
+time.sleep(3)
+
+
