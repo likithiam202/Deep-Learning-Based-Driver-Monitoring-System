@@ -5,7 +5,7 @@ import time
 
 def upload_data(name,gps,off,image):
     try:
-        URL='https://api.thingspeak.com/update?api_key=9CZOIBKMQQW193PM'
+        URL='https://api.thingspeak.com/update?api_key=WB2WHZFU2S47FXL2'
         header='&field1={}&field2={}&field3={}&field4={}'.format(name,gps,off,image)
         new_url=URL+header
         data=urllib.request.urlopen(new_url)
