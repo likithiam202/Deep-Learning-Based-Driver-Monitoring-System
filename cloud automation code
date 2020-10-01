@@ -1,0 +1,38 @@
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+import time
+import os
+
+driver = webdriver.Chrome()
+driver.get("https://mega.nz/fm/LeYh0Aza")
+
+time.sleep(5)
+
+driver.maximize_window()
+
+time.sleep(3)
+
+driver.find_element_by_xpath("//*[@id='startholder']/div[2]/div/div[1]/div[1]/div/div[17]/a[2]").click()
+
+time.sleep(1)
+
+driver.find_element_by_xpath("//*[@id='login-name']").send_keys("p1projectteam66@gmail.com")
+
+time.sleep(1)
+
+driver.find_element_by_xpath("//*[@id='login-password']").send_keys("nUHDciga2p4LfXy")
+
+time.sleep(3)
+
+driver.find_element_by_xpath("//*[@id='form_login_header']/div[5]").click()
+
+time.sleep(10)
+
+driver.get("https://mega.nz/fm/LeYh0Aza")
+
+time.sleep(3)
+
+driver.find_element_by_id("fileselect2").send_keys("C:\Python\project_path_raj")
+
+time.sleep(10)
